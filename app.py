@@ -6,7 +6,6 @@ import plotly.graph_objects as go
 # Set page config
 st.set_page_config(
     page_title="Global CO2 Emissions | Analytical Dashboard",
-    page_icon="🌱",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -248,7 +247,7 @@ with m_col3:
 st.markdown("<br>", unsafe_allow_html=True)
 
 # Tabs
-tab1, tab2, tab3 = st.tabs(["🌎 Global Trends & Shifts", "📈 Economic Decoupling", "⚡ Transitioning Fuel Sources"])
+tab1, tab2, tab3 = st.tabs(["Global Macro Trends", "Economic Decoupling Analysis", "Energy Source Breakdown"])
 
 # --- TAB 1: Global Trends ---
 with tab1:
@@ -362,9 +361,9 @@ with tab2:
                 yaxis_title=f"Index ({base_year} = 100)"
             )
             st.plotly_chart(fig2, use_container_width=True)
-            st.caption("ℹ️ **How to read**: Solid lines represent CO2 per Capita. Dotted lines represent GDP per Capita. Dotted lines rising above solid lines indicates decoupling.")
+            st.caption("**SYSTEM GUIDANCE**: Solid lines designate CO2 per Capita. Dotted lines designate GDP per Capita. Dotted lines transcending solid lines signifies economic decoupling.")
         else:
-            st.warning("Please select at least one country.")
+            st.warning("SYSTEM ALERT: Target minimum one country for analysis.")
 
 # --- TAB 3: Fuel Sources ---
 with tab3:
