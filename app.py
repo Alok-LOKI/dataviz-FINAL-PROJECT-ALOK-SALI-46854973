@@ -13,19 +13,20 @@ st.set_page_config(
 # Load Google Fonts and inject Custom CSS for premium Dark Mode / Hybrid look
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
     
     /* Global Styles */
     html, body, [class*="css"] {
-        font-family: 'Outfit', sans-serif;
-        color: #f3f4f6;
+        font-family: 'Share Tech Mono', monospace;
+        color: #00FF41;
     }
     
-    /* Premium Deep Black/Charcoal Page Background with subtle Dark Grid */
+    /* Robotic/Terminal Page Background */
     .stApp {
-        background-color: #030712;
-        background-image: radial-gradient(#1f2937 1.5px, transparent 1.5px);
-        background-size: 24px 24px;
+        background-color: #000000;
+        background-image: linear-gradient(rgba(0, 255, 65, 0.05) 1px, transparent 1px),
+                          linear-gradient(90deg, rgba(0, 255, 65, 0.05) 1px, transparent 1px);
+        background-size: 20px 20px;
     }
     
     /* Main container spacing */
@@ -34,118 +35,113 @@ st.markdown("""
         padding-bottom: 2rem;
     }
     
-    /* Premium Dark Glassmorphic Title Header */
+    /* Terminal Title Header */
     .title-container {
-        background: rgba(17, 24, 39, 0.7);
-        backdrop-filter: blur(12px);
+        background: #000000;
         padding: 2.5rem;
-        border-radius: 16px;
-        border: 1px solid rgba(55, 65, 81, 0.4);
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+        border: 2px solid #00FF41;
+        box-shadow: 0 0 15px rgba(0,255,65,0.3);
         margin-bottom: 2rem;
     }
     .main-title {
         font-size: 2.75rem;
         font-weight: 700;
-        color: #ffffff;
+        color: #00FF41;
         margin-bottom: 0.5rem;
-        background: linear-gradient(to right, #ffffff, #9ca3af);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 8px #00FF41;
+        text-transform: uppercase;
+        letter-spacing: 2px;
     }
     .subtitle {
         font-size: 1.1rem;
-        color: #9ca3af;
-        font-weight: 300;
+        color: #00FF41;
+        opacity: 0.8;
     }
     
-    /* Dark Glassmorphic Card design for metrics */
+    /* Terminal Card design for metrics */
     .metric-card {
-        background: rgba(17, 24, 39, 0.85);
-        backdrop-filter: blur(12px);
+        background: #000000;
         padding: 1.5rem;
-        border-radius: 12px;
-        border: 1px solid rgba(55, 65, 81, 0.4);
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        border: 1px solid #00FF41;
+        box-shadow: inset 0 0 10px rgba(0,255,65,0.1);
         transition: transform 0.2s, box-shadow 0.2s;
     }
     .metric-card:hover {
         transform: translateY(-2px);
-        box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.5);
+        box-shadow: inset 0 0 15px rgba(0,255,65,0.3), 0 0 10px rgba(0,255,65,0.5);
     }
     .metric-label {
         font-size: 0.85rem;
         font-weight: 600;
         text-transform: uppercase;
-        color: #9ca3af;
-        letter-spacing: 0.05em;
+        color: #00FF41;
+        letter-spacing: 0.1em;
     }
     .metric-value {
         font-size: 2rem;
         font-weight: 700;
         color: #ffffff;
         margin-top: 0.25rem;
+        text-shadow: 0 0 5px #ffffff;
     }
     .metric-delta {
         font-size: 0.85rem;
         font-weight: 500;
         margin-top: 0.25rem;
     }
-    .delta-up { color: #f87171; }
-    .delta-down { color: #34d399; }
+    .delta-up { color: #ff003c; } 
+    .delta-down { color: #00FF41; } 
 
     /* Elegant Containers for Controls (Sidebars / Columns) in Dark Glass */
     div[data-testid="stVerticalBlockBorderWrapper"] {
-        background: rgba(17, 24, 39, 0.7) !important;
-        backdrop-filter: blur(12px);
-        border-radius: 12px !important;
-        border: 1px solid rgba(55, 65, 81, 0.4) !important;
+        background: #000000 !important;
+        border: 1px solid #00FF41 !important;
         padding: 1.5rem !important;
     }
     
     /* Fix text colors inside control panels for readability */
     label[data-testid="stWidgetLabel"] {
-        color: #cbd5e1 !important;
-        font-weight: 500 !important;
+        color: #00FF41 !important;
+        font-family: 'Share Tech Mono', monospace !important;
     }
     .stMarkdown p, .stMarkdown h5 {
-        color: #e5e7eb !important;
+        color: #00FF41 !important;
     }
 
     /* Wrap Plotly Charts in elegant white cards to ensure visual standard compliance */
     div[data-testid="stPlotlyChart"] {
-        background-color: #ffffff;
+        background-color: #000000;
         padding: 1.5rem;
-        border-radius: 16px;
-        border: 1px solid rgba(226, 232, 240, 0.8);
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        border: 1px solid #00FF41;
+        box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
         margin-bottom: 1.5rem;
     }
 
-    /* Custom styles for Streamlit Tabs (matching dark theme) */
+    /* Custom styles for Streamlit Tabs */
     .stTabs [data-baseweb="tab-list"] {
-        gap: 8px;
+        gap: 0px;
         background-color: transparent;
+        border-bottom: 1px solid #00FF41;
     }
     .stTabs [data-baseweb="tab"] {
         padding: 10px 20px;
-        background-color: rgba(17, 24, 39, 0.6);
-        backdrop-filter: blur(4px);
-        border: 1px solid rgba(55, 65, 81, 0.4);
-        border-radius: 8px 8px 0 0;
-        color: #9ca3af;
-        font-weight: 500;
+        background-color: #000000;
+        border: 1px solid #00FF41;
+        border-bottom: none;
+        color: #00FF41;
+        font-family: 'Share Tech Mono', monospace;
         transition: all 0.2s;
+        opacity: 0.5;
     }
     .stTabs [data-baseweb="tab"]:hover {
-        color: #ffffff;
-        background-color: rgba(31, 41, 55, 0.8);
+        opacity: 0.8;
+        background-color: rgba(0, 255, 65, 0.1);
     }
     .stTabs [aria-selected="true"] {
-        background-color: rgba(17, 24, 39, 0.9) !important;
-        border-bottom: 2px solid #ffffff !important;
+        background-color: rgba(0, 255, 65, 0.2) !important;
         color: #ffffff !important;
-        font-weight: 600 !important;
+        opacity: 1 !important;
+        box-shadow: inset 0 2px 0 #00FF41 !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -159,23 +155,23 @@ def load_data():
 df = load_data()
 
 # Styling Constants
-FONT_FAMILY = "Outfit, sans-serif"
-COLOR_PRIMARY = "#0f172a"      # Sleek Charcoal for text
-COLOR_HIGHLIGHT = "#c2410c"    # Warm Amber/Copper (CVD-safe focus)
-COLOR_MUTED = "#94a3b8"        # Slate grey for background
-COLORS_SEQUENCE = ["#0284c7", "#c2410c", "#0d9488", "#7c3aed", "#db2777", "#ea580c"] # CVD-safe vibrant palette
+FONT_FAMILY = "'Share Tech Mono', monospace"
+COLOR_PRIMARY = "#00FF41"      
+COLOR_HIGHLIGHT = "#ffffff"    
+COLOR_MUTED = "#00FF41"        
+COLORS_SEQUENCE = ["#00FF41", "#ffffff", "#438856", "#aaaaaa", "#115522", "#cccccc"] 
 
 def apply_plotly_theme(fig, title_text, yaxis_title=""):
     fig.update_layout(
         title={
             'text': title_text,
-            'font': {'family': FONT_FAMILY, 'size': 18, 'weight': 600, 'color': '#0f172a'},
+            'font': {'family': FONT_FAMILY, 'size': 18, 'weight': 600, 'color': '#00FF41'},
             'y': 0.95,
             'x': 0,
             'xanchor': 'left',
             'yanchor': 'top'
         },
-        font=dict(family=FONT_FAMILY, color="#334155"),
+        font=dict(family=FONT_FAMILY, color="#00FF41"),
         paper_bgcolor='rgba(0,0,0,0)',
         plot_bgcolor='rgba(0,0,0,0)',
         margin=dict(l=0, r=0, t=60, b=40),
@@ -185,13 +181,13 @@ def apply_plotly_theme(fig, title_text, yaxis_title=""):
             y=-0.2,
             xanchor="left",
             x=0,
-            font=dict(size=11)
+            font=dict(size=11, color="#00FF41")
         ),
         yaxis_title=yaxis_title,
         xaxis_title=""
     )
-    fig.update_xaxes(showgrid=False, linecolor='#cbd5e1', tickfont=dict(size=11))
-    fig.update_yaxes(showgrid=False, linecolor='#cbd5e1', tickfont=dict(size=11))
+    fig.update_xaxes(showgrid=True, gridcolor='#113311', linecolor='#00FF41', tickfont=dict(size=11, color='#00FF41'))
+    fig.update_yaxes(showgrid=True, gridcolor='#113311', linecolor='#00FF41', tickfont=dict(size=11, color='#00FF41'))
     return fig
 
 # Title Block
@@ -388,11 +384,11 @@ with tab3:
         
         # Consistent customized colors for specific sources
         source_colors = {
-            'Coal': '#475569',    # Dark slate
-            'Oil': '#c2410c',     # Warm copper/orange
-            'Gas': '#0284c7',     # Deep blue
-            'Cement': '#94a3b8',  # Light slate
-            'Flaring': '#e2e8f0'  # Off white/grey
+            'Coal': '#ffffff',
+            'Oil': '#aaaaaa',
+            'Gas': '#00FF41',
+            'Cement': '#438856',
+            'Flaring': '#115522'
         }
         
         fig3 = px.bar(
