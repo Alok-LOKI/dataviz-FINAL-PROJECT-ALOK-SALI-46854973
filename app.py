@@ -21,9 +21,10 @@ st.markdown("""
         color: #f3f4f6;
     }
     
-    /* Clean Robotic Black Page Background */
+    /* Clean Robotic Black Page Background with Binary Font Pattern */
     .stApp {
         background-color: #000000;
+        background-image: url("data:image/svg+xml,%3Csvg width='300' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='20' y='50' font-family='monospace' font-weight='bold' font-size='14' fill='rgba(16, 185, 129, 0.07)' letter-spacing='2'%3E01010110 1001%3C/text%3E%3Ctext x='120' y='150' font-family='monospace' font-weight='bold' font-size='14' fill='rgba(16, 185, 129, 0.07)' letter-spacing='2'%3E11001010 0110%3C/text%3E%3Ctext x='40' y='250' font-family='monospace' font-weight='bold' font-size='14' fill='rgba(16, 185, 129, 0.07)' letter-spacing='2'%3E00110011 1101%3C/text%3E%3C/svg%3E");
         border-top: 4px solid #10b981;
     }
     
